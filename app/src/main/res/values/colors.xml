@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="black">#000000</color>
+    <color name="white">#fafafa</color>
+
+    <!-- Screens background color-->
+    <color name="bg_screen3">#308bec</color>
+    <color name="bg_screen4">#c873f4</color>
+
+
+    <!-- dots inactive colors -->
+
+    <!-- dots active colors -->
+
+    <!-- BRAND -->
+
+    <!-- GREY -->
+
+    <!-- QUIET -->
+
+    <!-- OTHER -->
+    <!-- red light -->
+    <color name="chat_away">#74000000</color>
+    <color name="pure_red">#CE0C34</color>
+    <!-- LEGACY? -->
+    <color name="ssd">#3C485D</color>
+    <color name="ssds">#303c51</color>
+</resources>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">HelaClockPro</string>
+    <string name="btntext">ආරම්භ කරන්න</string>
+    <string name="theme">මුහුණුවර ‍තෝරන්න</string>
+    <string name="maintext">සිංහල ඔරලෝසුව</string>
+    <string name="widhed">Widget Settings</string>
+    <string name="textcolour">Change Text Colour</string>
+    <string name="sinhala">fonts/emanee.ttf</string>
+    <string name="bakcolou">Backgrund Colour</string>
+    <string name="Hint">Hint ON</string>
+</resources>
