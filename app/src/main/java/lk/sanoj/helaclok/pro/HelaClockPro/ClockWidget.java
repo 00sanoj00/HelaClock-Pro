@@ -19,11 +19,14 @@ import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
+import android.os.Handler;
+import android.os.Message;
 import android.os.SystemClock;
 import android.text.TextPaint;
 import android.util.Log;
 import android.util.TypedValue;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -33,6 +36,8 @@ import java.util.Date;
 
 import static android.content.Context.MODE_PRIVATE;
 import static android.graphics.Paint.ANTI_ALIAS_FLAG;
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
 
 public class ClockWidget extends AppWidgetProvider {
 
@@ -52,7 +57,9 @@ public class ClockWidget extends AppWidgetProvider {
     private String time;
     private Context con;
     private int ampmtrack;
-
+    private int textcolour2;
+    private int hintcontorl;
+    private int click;
 
 
 
@@ -62,7 +69,7 @@ public class ClockWidget extends AppWidgetProvider {
 
     }
 
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(final Context context, Intent intent) {
 
 
 
@@ -84,11 +91,23 @@ public class ClockWidget extends AppWidgetProvider {
             }
 
          if (action.equals("android.appwidget.action.APPWIDGET_UPDATE")) {
-             
+
+             try{
+                 SharedPreferences prefs = context.getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
+                 hintcontorl = prefs.getInt("hint", 0);
+             }catch (Exception hint){
+
+                 hintcontorl = 0;
+             }
 
 
 
-             this.views = new RemoteViews(context.getPackageName(), R.layout.hellowidget_layout);
+             if(hintcontorl==1){
+                 this.views = new RemoteViews(context.getPackageName(), R.layout.withouthint);
+             }else if (hintcontorl==0) {
+                 this.views = new RemoteViews(context.getPackageName(), R.layout.hellowidget_layout);
+             }
+
 
 
 
@@ -112,6 +131,8 @@ public class ClockWidget extends AppWidgetProvider {
              }else if(imageampm.equals("pm")){
                  ampmtrack = 2;
              }
+
+
 
              String imagehh = new SimpleDateFormat("hh").format(Calendar.getInstance().getTime());
 
@@ -145,95 +166,110 @@ public class ClockWidget extends AppWidgetProvider {
 
              ///////////////////////////////////////////////////////////////////////////////////////
 
-             Resources resources = context.getResources();
 
 
-             if(ampmtrack==1){
-                 //views.setImageViewResource(R.id.status, R.drawable.after);
 
-                 if(imagehh.equals("00")){
-                     views.setImageViewResource(R.id.status, R.drawable.night);
-                 }
-                 else if(imagehh.equals("12")){
-                     views.setImageViewResource(R.id.status, R.drawable.night);
-                 }
-                 else if(imagehh.equals("01")){
-                     views.setImageViewResource(R.id.status, R.drawable.night);
-                 }
-                 else if(imagehh.equals("02")){
-                     views.setImageViewResource(R.id.status, R.drawable.night);
-                 }
-                 else if(imagehh.equals("03")){
-                     views.setImageViewResource(R.id.status, R.drawable.night);
-                 }
-                 else if(imagehh.equals("04")){
-                     views.setImageViewResource(R.id.status, R.drawable.night);
-                 }
-                 else if(imagehh.equals("05")){
-                     views.setImageViewResource(R.id.status, R.drawable.night);
-                 }
-                 else if(imagehh.equals("06")){
-                     views.setImageViewResource(R.id.status, R.drawable.morningimg);
-                 }
-                 else if(imagehh.equals("07")){
-                     views.setImageViewResource(R.id.status, R.drawable.morningimg);
-                 }
-                 else if(imagehh.equals("08")){
-                     views.setImageViewResource(R.id.status, R.drawable.morningimg);
-                 }
-                 else if(imagehh.equals("09")){
-                     views.setImageViewResource(R.id.status, R.drawable.morningimg);
-                 }
-                 else if(imagehh.equals("10")){
-                     views.setImageViewResource(R.id.status, R.drawable.morningimg);
-                 }
-                 else if(imagehh.equals("11")){
-                     views.setImageViewResource(R.id.status, R.drawable.morningimg);
+
+
+
+
+             if(hintcontorl==1){
+
+                 //
+                 views.setViewVisibility(R.id.status, INVISIBLE);
+
+             }else if(hintcontorl==0){
+                 views.setViewVisibility(R.id.status, VISIBLE);
+                 if(ampmtrack==1){
+                     //views.setImageViewResource(R.id.status, R.drawable.after);
+
+                     if(imagehh.equals("00")){
+                         views.setImageViewResource(R.id.status, R.drawable.night);
+                     }
+                     else if(imagehh.equals("12")){
+                         views.setImageViewResource(R.id.status, R.drawable.night);
+                     }
+                     else if(imagehh.equals("01")){
+                         views.setImageViewResource(R.id.status, R.drawable.night);
+                     }
+                     else if(imagehh.equals("02")){
+                         views.setImageViewResource(R.id.status, R.drawable.night);
+                     }
+                     else if(imagehh.equals("03")){
+                         views.setImageViewResource(R.id.status, R.drawable.night);
+                     }
+                     else if(imagehh.equals("04")){
+                         views.setImageViewResource(R.id.status, R.drawable.night);
+                     }
+                     else if(imagehh.equals("05")){
+                         views.setImageViewResource(R.id.status, R.drawable.night);
+                     }
+                     else if(imagehh.equals("06")){
+                         views.setImageViewResource(R.id.status, R.drawable.morningimg);
+                     }
+                     else if(imagehh.equals("07")){
+                         views.setImageViewResource(R.id.status, R.drawable.morningimg);
+                     }
+                     else if(imagehh.equals("08")){
+                         views.setImageViewResource(R.id.status, R.drawable.morningimg);
+                     }
+                     else if(imagehh.equals("09")){
+                         views.setImageViewResource(R.id.status, R.drawable.morningimg);
+                     }
+                     else if(imagehh.equals("10")){
+                         views.setImageViewResource(R.id.status, R.drawable.morningimg);
+                     }
+                     else if(imagehh.equals("11")){
+                         views.setImageViewResource(R.id.status, R.drawable.morningimg);
+                     }
+
                  }
 
+                 if (ampmtrack==2){
+                     if(imagehh.equals("00")){
+                         views.setImageViewResource(R.id.status, R.drawable.after);
+                     }
+                     else if(imagehh.equals("12")){
+                         views.setImageViewResource(R.id.status, R.drawable.after);
+                     }
+                     else if(imagehh.equals("01")){
+                         views.setImageViewResource(R.id.status, R.drawable.after);
+                     }
+                     else if(imagehh.equals("02")){
+                         views.setImageViewResource(R.id.status, R.drawable.after);
+                     }
+                     else if(imagehh.equals("03")){
+                         views.setImageViewResource(R.id.status, R.drawable.after);
+                     }
+                     else if(imagehh.equals("04")){
+                         views.setImageViewResource(R.id.status, R.drawable.after);
+                     }
+                     else if(imagehh.equals("05")){
+                         views.setImageViewResource(R.id.status, R.drawable.after);
+                     }
+                     else if(imagehh.equals("06")){
+                         views.setImageViewResource(R.id.status, R.drawable.after);
+                     }
+                     else if(imagehh.equals("07")){
+                         views.setImageViewResource(R.id.status, R.drawable.after);
+                     }
+                     else if(imagehh.equals("08")){
+                         views.setImageViewResource(R.id.status, R.drawable.night);
+                     }
+                     else if(imagehh.equals("09")){
+                         views.setImageViewResource(R.id.status, R.drawable.night);
+                     }
+                     else if(imagehh.equals("10")){
+                         views.setImageViewResource(R.id.status, R.drawable.night);
+                     }
+                     else if(imagehh.equals("11")){
+                         views.setImageViewResource(R.id.status, R.drawable.night);
+                     }
+                 }
              }
 
-             if (ampmtrack==2){
-                 if(imagehh.equals("00")){
-                     views.setImageViewResource(R.id.status, R.drawable.after);
-                 }
-                 else if(imagehh.equals("12")){
-                     views.setImageViewResource(R.id.status, R.drawable.after);
-                 }
-                 else if(imagehh.equals("01")){
-                     views.setImageViewResource(R.id.status, R.drawable.after);
-                 }
-                 else if(imagehh.equals("02")){
-                     views.setImageViewResource(R.id.status, R.drawable.after);
-                 }
-                 else if(imagehh.equals("03")){
-                     views.setImageViewResource(R.id.status, R.drawable.after);
-                 }
-                 else if(imagehh.equals("04")){
-                     views.setImageViewResource(R.id.status, R.drawable.after);
-                 }
-                 else if(imagehh.equals("05")){
-                     views.setImageViewResource(R.id.status, R.drawable.after);
-                 }
-                 else if(imagehh.equals("06")){
-                     views.setImageViewResource(R.id.status, R.drawable.after);
-                 }
-                 else if(imagehh.equals("07")){
-                     views.setImageViewResource(R.id.status, R.drawable.after);
-                 }
-                 else if(imagehh.equals("08")){
-                     views.setImageViewResource(R.id.status, R.drawable.night);
-                 }
-                 else if(imagehh.equals("09")){
-                     views.setImageViewResource(R.id.status, R.drawable.night);
-                 }
-                 else if(imagehh.equals("10")){
-                     views.setImageViewResource(R.id.status, R.drawable.night);
-                 }
-                 else if(imagehh.equals("11")){
-                     views.setImageViewResource(R.id.status, R.drawable.night);
-                 }
-             }
+
+
 
 
 
@@ -450,16 +486,10 @@ public class ClockWidget extends AppWidgetProvider {
 
 
 
-
-
-
-
-
-
-
-
-
-
+             Intent intents = new Intent(context, widsetting.class);
+             intent.setAction("Click");
+             PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intents, 0);
+             views.setOnClickPendingIntent(R.id.myRelativeLayout, pendingIntent);
 
 
 
@@ -488,7 +518,13 @@ public class ClockWidget extends AppWidgetProvider {
         try {
 
             SharedPreferences prefs = context.getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
-            texctcolour = prefs.getInt("textc", 0);
+            textcolour2 = prefs.getInt("textc", 0);
+
+            if(textcolour2==0){
+                texctcolour = Color.WHITE;
+            }else {
+                texctcolour = textcolour2;
+            }
 
         } catch (Exception e) {
             texctcolour = Color.WHITE;
@@ -515,7 +551,15 @@ public class ClockWidget extends AppWidgetProvider {
         try {
 
             SharedPreferences prefs = context.getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
-            texctcolour = prefs.getInt("textc", 0);
+            textcolour2 = prefs.getInt("textc", 0);
+
+            if(textcolour2==0){
+                texctcolour = Color.WHITE;
+            }else {
+                texctcolour = textcolour2;
+            }
+
+
         } catch (Exception e) {
             texctcolour = Color.WHITE;
         }

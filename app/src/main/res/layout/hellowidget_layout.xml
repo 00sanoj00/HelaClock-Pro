@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="220dp">
 
-
     <ImageView
         android:id="@+id/back"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <ImageView
         android:id="@+id/status"
-        android:layout_width="match_parent"
+        android:layout_marginLeft="282dp"
+        android:layout_width="129dp"
         android:layout_height="match_parent" />
 
     <ImageView
@@ -23,25 +23,25 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="53dp"
         app:srcCompat="@color/bg_screen4" />
 
     <ImageView
         android:id="@+id/hou"
-        android:layout_width="285dp"
-        android:layout_height="117dp"
+        android:layout_width="276dp"
+        android:layout_height="114dp"
         android:layout_alignStart="@+id/AMPM"
         android:layout_centerVertical="true"
         app:srcCompat="@color/bg_screen3" />
 
     <ImageView
         android:id="@+id/mini"
-        android:layout_width="200dp"
-        android:layout_height="73dp"
+        android:layout_width="195dp"
+        android:layout_height="72dp"
         android:layout_below="@+id/hou"
         android:layout_alignStart="@+id/AMPM"
-        android:layout_marginStart="-1dp"
-        android:layout_marginTop="-44dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-49dp"
         app:srcCompat="@color/chat_away" />
 
 

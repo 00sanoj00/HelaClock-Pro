@@ -1,15 +1,11 @@
 package lk.sanoj.helaclok.pro.HelaClockPro;
 
 
-import android.Manifest;
 import android.app.Activity;
-import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,9 +13,6 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
-
-import androidx.core.app.ActivityCompat;
-
 import ahmadrosid.com.lib.CustomTextView;
 import top.defaults.colorpicker.ColorPickerPopup;
 
@@ -40,12 +33,13 @@ public class widsetting extends Activity {
     private int textc;
     private Switch onoff;
     private ImageView hintview;
+    private int mColor = 0xFFFFFF;
+    private boolean mHexValueEnable = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_widsetting);
-
 
         colotchange = (Button) findViewById(R.id.textcolour);
         codeview = (TextView) findViewById(R.id.codeview);
@@ -59,10 +53,6 @@ public class widsetting extends Activity {
         onoff = (Switch)findViewById(R.id.switch1);
         hintview = (ImageView)findViewById(R.id.imageView5);
 
-
-
-
-
         try{
 
             SharedPreferences prefs = this.getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
@@ -70,7 +60,7 @@ public class widsetting extends Activity {
             textc = prefs.getInt("textc", 0);//maintext colour
 
             String colourb2 = prefs.getString("b2colour", null);//backgrund colou code text
-            String hint = prefs.getString("hint", null);//hint
+            int hint = prefs.getInt("hint", 0);//hint
             bcolour = prefs.getInt("bcolour", 0);//backgraund colour
 
 
@@ -99,35 +89,16 @@ public class widsetting extends Activity {
                 textView5.setTextColor(textc);
                 textView6.setTextColor(textc);
             }
-            if (hint==null){
+            if (hint==0){
                 hintview.setVisibility(View.VISIBLE);
                 onoff.setChecked(false);
-            }else if(hint.equals("ON")) {
-                onoff.setChecked(false);
-                hintview.setVisibility(View.VISIBLE);
-            }else if (hint.equals("OFF")){
+                onoff.setText("Hint ON");
+            }else if (hint==1){
                 hintview.setVisibility(View.INVISIBLE);
                 onoff.setChecked(true);
                 onoff.setText("Hint OFF");
-            }else {
-                hintview.setVisibility(View.INVISIBLE);
-                onoff.setChecked(true);
-                onoff.setText("Hint OFF");
+
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }catch (Exception O){
 
 
@@ -136,105 +107,55 @@ public class widsetting extends Activity {
 
 
 
-
-
-
-
-
-
-
-
-        try{
-
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                return;
-            }
-            Drawable wallpaper = WallpaperManager
-                    .getInstance(this)
-                    .getFastDrawable();
-
-            show.setBackground(wallpaper);
-
-        }catch (Exception O){
-
-
-        }
 
         backgraund.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                new ColorPickerPopup.Builder(widsetting.this)
-                        .initialColor(Color.TRANSPARENT) // Set initial color
-                        .enableBrightness(true) // Enable brightness slider or not
-                        .enableAlpha(true) // Enable alpha slider or not
-                        .okTitle("Choose")
-                        .cancelTitle("Cancel")
-                        .showIndicator(true)
-                        .showValue(true)
-                        .build()
-                        .show( new ColorPickerPopup.ColorPickerObserver() {
+            new ColorPickerDialog.Builder(widsetting.this, mColor)
+                        .setHexValueEnabled(mHexValueEnable)
+                        .setOnColorPickedListener(new ColorPickerDialog.OnColorPickedListener() {
                             @Override
                             public void onColorPicked(int color) {
-
+                                mColor = color;
                                 String hexColor = String.format("#%06X", (0xFFFFFF & color));
                                 backcode.setText(hexColor);
-
                                 backimage.setBackgroundColor(color);
-
                                 SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
                                 editor.putInt("bcolour", color);
                                 editor.putString("b2colour", hexColor);
                                 editor.apply();
 
-
                             }
-
-                        });
-
+                        })
+                        .build()
+                        .show();
 
             }
         });
 
-
-
-
-
-
-
         colotchange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                new ColorPickerPopup.Builder(widsetting.this)
-                        .initialColor(Color.WHITE) // Set initial color
-                        .enableBrightness(true) // Enable brightness slider or not
-                        .enableAlpha(true) // Enable alpha slider or not
-                        .okTitle("Choose")
-                        .cancelTitle("Cancel")
-                        .showIndicator(true)
-                        .showValue(true)
-                        .build()
-                        .show( new ColorPickerPopup.ColorPickerObserver() {
+                new ColorPickerDialog.Builder(widsetting.this, mColor)
+                        .setHexValueEnabled(mHexValueEnable)
+                        .setOnColorPickedListener(new ColorPickerDialog.OnColorPickedListener() {
                             @Override
                             public void onColorPicked(int color) {
-
+                                mColor = color;
                                 String hexColor = String.format("#%06X", (0xFFFFFF & color));
                                 codeview.setText(hexColor);
-
                                 textView4.setTextColor(color);
                                 textView5.setTextColor(color);
                                 textView6.setTextColor(color);
-
                                 SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
                                 editor.putString("colour", hexColor);
                                 editor.putInt("textc", color);
                                 editor.apply();
-
-
                             }
+                        })
+                        .build()
+                        .show();
 
-                        });
 
 
             }
@@ -249,13 +170,13 @@ public class widsetting extends Activity {
                     onoff.setText("Hint OFF");
                     hintview.setVisibility(View.INVISIBLE);
                     SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
-                    editor.putString("hint", "OFF");
+                    editor.putInt("hint", 1);
                     editor.apply();
                 }else {
                     onoff.setText("Hint ON");
                     hintview.setVisibility(View.VISIBLE);
                     SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
-                    editor.putString("hint", "ON");
+                    editor.putInt("hint", 0);
                     editor.apply();
                 }
             }
