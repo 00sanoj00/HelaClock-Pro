@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     CheckBox ch3;
     CheckBox ch4;
 
-    private Button btn;
 
 
 
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
 
-        btn = (Button)findViewById(R.id.setting);
 
         ch1 = (CheckBox) findViewById(R.id.checkBox);
         ch2 = (CheckBox) findViewById(R.id.checkBox2);
@@ -78,13 +76,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent open = new Intent(MainActivity.this, widsetting.class);
-                startActivity(open);
-            }
-        });
+       // btn.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View view) {
+        //        Intent open = new Intent(MainActivity.this, widsetting.class);
+        ///        startActivity(open);
+         //   }
+       // });
 
 
 

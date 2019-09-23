@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dialergradent">
+    android:background="@drawable/layout_oldmain">
 
     <TextView
         android:id="@+id/textView3"
@@ -13,7 +13,7 @@
         android:layout_marginTop="43dp"
         android:layout_marginBottom="32dp"
         android:text="@string/widhed"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
         android:layout_marginBottom="9dp"
         android:background="@drawable/ayout_bg"
         android:text="@string/textcolour"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="9dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/textcolour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -50,14 +50,14 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="387dp"
-        android:layout_height="0dp"
+        android:layout_height="225dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/codeview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:srcCompat="@drawable/ayout_bg" />
+        android:background="@drawable/sndbackgrund" />
 
     <ImageView
         android:id="@+id/backcolourimag"
@@ -67,8 +67,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:srcCompat="@drawable/dialergradent" />
+        app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -126,7 +125,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/backgraund"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -140,7 +139,7 @@
         android:layout_marginBottom="26dp"
         android:background="@drawable/ayout_bg"
         android:text="@string/bakcolou"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/switch1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -153,7 +152,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="137dp"
         android:text="@string/Hint"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:theme="@style/SwitchCompatTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
