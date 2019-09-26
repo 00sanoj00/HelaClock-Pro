@@ -2,18 +2,12 @@ package lk.sanoj.helaclok.pro.HelaClockPro;
 
 
 import android.app.Activity;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -21,11 +15,7 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import ahmadrosid.com.lib.CustomTextView;
-import top.defaults.colorpicker.ColorPickerPopup;
-
-import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
-import static android.service.notification.Condition.SCHEME;
-import static heyalex.widgethelper.WidgetUpdateService.NOTIFICATION_ID;
+import top.defaults.colorpickerr.ColorPickerPopup;
 
 
 public class widsetting extends Activity {
