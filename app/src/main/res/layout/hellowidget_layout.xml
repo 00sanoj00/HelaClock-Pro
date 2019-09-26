@@ -23,7 +23,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginTop="45dp"
         app:srcCompat="@color/bg_screen4" />
 
     <ImageView
@@ -41,7 +41,7 @@
         android:layout_below="@+id/hou"
         android:layout_alignStart="@+id/AMPM"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="-49dp"
+        android:layout_marginTop="-48dp"
         app:srcCompat="@color/chat_away" />
 
 

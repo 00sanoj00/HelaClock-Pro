@@ -8,4 +8,5 @@
     <string name="sinhala">fonts/emanee.ttf</string>
     <string name="bakcolou">Backgrund Colour</string>
     <string name="Hint">Hint ON</string>
+    <string name="resetstn">Reset Setting</string>
 </resources>

@@ -2,11 +2,18 @@ package lk.sanoj.helaclok.pro.HelaClockPro;
 
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -15,6 +22,10 @@ import android.widget.Switch;
 import android.widget.TextView;
 import ahmadrosid.com.lib.CustomTextView;
 import top.defaults.colorpicker.ColorPickerPopup;
+
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+import static android.service.notification.Condition.SCHEME;
+import static heyalex.widgethelper.WidgetUpdateService.NOTIFICATION_ID;
 
 
 public class widsetting extends Activity {
@@ -25,7 +36,7 @@ public class widsetting extends Activity {
     private CustomTextView textView4;
     private CustomTextView textView5;
     private CustomTextView textView6;
-    private Button backgraund;
+    private Button backgraund, clearsetting , ynoty;
     private TextView backcode;
     private ImageView backimage;
     private Context context;
@@ -52,6 +63,8 @@ public class widsetting extends Activity {
         backimage = (ImageView)findViewById(R.id.backcolourimag);
         onoff = (Switch)findViewById(R.id.switch1);
         hintview = (ImageView)findViewById(R.id.imageView5);
+        clearsetting = (Button)findViewById(R.id.reset);
+        ynoty = (Button)findViewById(R.id.clnoty);
 
         try{
 
@@ -111,12 +124,20 @@ public class widsetting extends Activity {
         backgraund.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            new ColorPickerDialog.Builder(widsetting.this, mColor)
-                        .setHexValueEnabled(mHexValueEnable)
-                        .setOnColorPickedListener(new ColorPickerDialog.OnColorPickedListener() {
+
+                new ColorPickerPopup.Builder(widsetting.this)
+                        .initialColor(Color.RED) // Set initial color
+                        .enableBrightness(true) // Enable brightness slider or not
+                        .enableAlpha(true) // Enable alpha slider or not
+                        .okTitle("Choose")
+                        .cancelTitle("Cancel")
+                        .showIndicator(true)
+                        .showValue(true)
+                        .build()
+                        .show( new ColorPickerPopup.ColorPickerObserver() {
                             @Override
                             public void onColorPicked(int color) {
-                                mColor = color;
+
                                 String hexColor = String.format("#%06X", (0xFFFFFF & color));
                                 backcode.setText(hexColor);
                                 backimage.setBackgroundColor(color);
@@ -125,10 +146,12 @@ public class widsetting extends Activity {
                                 editor.putString("b2colour", hexColor);
                                 editor.apply();
 
+
+
                             }
-                        })
-                        .build()
-                        .show();
+
+                        });
+
 
             }
         });
@@ -136,26 +159,69 @@ public class widsetting extends Activity {
         colotchange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new ColorPickerDialog.Builder(widsetting.this, mColor)
-                        .setHexValueEnabled(mHexValueEnable)
-                        .setOnColorPickedListener(new ColorPickerDialog.OnColorPickedListener() {
+
+                new ColorPickerPopup.Builder(widsetting.this)
+                        .initialColor(Color.RED) // Set initial color
+                        .enableBrightness(true) // Enable brightness slider or not
+                        .enableAlpha(true) // Enable alpha slider or not
+                        .okTitle("Choose")
+                        .cancelTitle("Cancel")
+                        .showIndicator(true)
+                        .showValue(true)
+                        .build()
+                        .show( new ColorPickerPopup.ColorPickerObserver() {
                             @Override
                             public void onColorPicked(int color) {
-                                mColor = color;
-                                String hexColor = String.format("#%06X", (0xFFFFFF & color));
-                                codeview.setText(hexColor);
-                                textView4.setTextColor(color);
-                                textView5.setTextColor(color);
-                                textView6.setTextColor(color);
-                                SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
-                                editor.putString("colour", hexColor);
-                                editor.putInt("textc", color);
-                                editor.apply();
+                               String hexColor = String.format("#%06X", (0xFFFFFF & color));
+                               codeview.setText(hexColor);
+                               textView4.setTextColor(color);
+                               textView5.setTextColor(color);
+                               textView6.setTextColor(color);
+                               SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
+                               editor.putString("colour", hexColor);
+                               editor.putInt("textc", color);
+                               editor.apply();
                             }
-                        })
-                        .build()
-                        .show();
 
+                        });
+
+
+
+            }
+        });
+        clearsetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
+                editor.clear();
+                editor.apply();
+                try{
+                    Intent intent = getIntent();
+                    finish();
+                    startActivity(intent);
+                }catch (Exception e){
+
+                }
+            }
+        });
+
+        ynoty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent();
+                intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
+
+               try{
+
+                   intent.putExtra("app_package", getPackageName());
+                   intent.putExtra("app_uid", getApplicationInfo().uid);
+                   startActivity(intent);
+
+               }catch (Exception goo){
+                   intent.putExtra("android.provider.extra.APP_PACKAGE", getPackageName());
+                   startActivity(intent);
+               }
 
 
             }
@@ -184,4 +250,6 @@ public class widsetting extends Activity {
 
 
     }
+
+
 }

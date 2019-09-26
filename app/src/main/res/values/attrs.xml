@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ColorPickerView">
+        <attr name="enableAlpha" format="boolean"/>
+        <attr name="enableBrightness" format="boolean"/>
+        <attr name="onlyUpdateOnTouchEventUp" format="boolean"/>
+    </declare-styleable>
+</resources>

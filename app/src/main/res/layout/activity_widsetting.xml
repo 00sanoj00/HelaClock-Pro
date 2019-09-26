@@ -10,155 +10,195 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="48dp"
         android:text="@string/widhed"
         android:textColor="@color/black"
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/textcolour"
-        android:layout_width="180dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="9dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="15dp"
         android:background="@drawable/ayout_bg"
         android:text="@string/textcolour"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintBottom_toBottomOf="@+id/backgraund"
+        app:layout_constraintEnd_toStartOf="@+id/backgraund"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/codeview" />
+        app:layout_constraintTop_toTopOf="@+id/backgraund" />
 
     <TextView
         android:id="@+id/codeview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="9dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="89dp"
+        android:text="test"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/textcolour"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintEnd_toEndOf="@+id/textcolour"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="387dp"
-        android:layout_height="225dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/codeview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/sndbackgrund"
+        app:layout_constraintBottom_toBottomOf="@+id/codeview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        android:background="@drawable/sndbackgrund" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <ImageView
         android:id="@+id/backcolourimag"
-        android:layout_width="370dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="17dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="369dp"
-        android:layout_height="183dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginBottom="56dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/morningimg_view"
-        app:layout_constraintBottom_toBottomOf="@+id/codeview"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <ahmadrosid.com.lib.CustomTextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="23dp"
         android:text="වේලාව පෙරවරු"
         android:textColor="@color/white"
         android:textSize="@dimen/_23sdp"
         app:fontPath="@string/sinhala"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/backcolourimag" />
 
     <ahmadrosid.com.lib.CustomTextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="28dp"
         android:text="නවය පසුවී"
         android:textColor="@color/white"
         android:textSize="@dimen/_45sdp"
         app:fontPath="@string/sinhala"
-        app:layout_constraintStart_toStartOf="@+id/backcolourimag"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <ahmadrosid.com.lib.CustomTextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="26dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="253dp"
         android:text="විනාඩි පනස් නවයයි"
         android:textColor="@color/white"
         android:textSize="@dimen/_29sdp"
         app:fontPath="@string/sinhala"
-        app:layout_constraintBottom_toBottomOf="@+id/backcolourimag"
-        app:layout_constraintStart_toStartOf="@+id/textView5" />
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="72dp"
+        android:text="test2"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/backgraund"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textcolour" />
+        app:layout_constraintEnd_toEndOf="@+id/backcolourimag"
+        app:layout_constraintStart_toStartOf="@+id/backgraund"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/backgraund"
-        android:layout_width="180dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="26dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/ayout_bg"
         android:text="@string/bakcolou"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/switch1"
+        app:layout_constraintBottom_toTopOf="@+id/clnoty"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textcolour"
         app:layout_constraintTop_toBottomOf="@+id/back" />
 
     <Switch
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="137dp"
+        android:layout_marginTop="29dp"
         android:text="@string/Hint"
         android:textColor="@color/black"
         android:theme="@style/SwitchCompatTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backgraund" />
+        app:layout_constraintTop_toBottomOf="@+id/clnoty" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/ayout_bg"
+        android:text="@string/resetstn"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/clnoty"
+        app:layout_constraintEnd_toStartOf="@+id/clnoty"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/clnoty" />
+
+    <Button
+        android:id="@+id/clnoty"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ayout_bg"
+        android:text="Hide notofication"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/reset"
+        app:layout_constraintTop_toBottomOf="@+id/back" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

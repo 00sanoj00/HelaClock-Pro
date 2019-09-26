@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
 
+import com.onesignal.OneSignal;
 import com.yayandroid.rotatable.Rotatable;
 
 
@@ -19,6 +20,10 @@ public class Welcom extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
         setContentView(R.layout.activity_welcom);
 
 

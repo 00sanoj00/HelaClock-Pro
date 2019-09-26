@@ -23,4 +23,9 @@
         <item name="colorControlActivated">@color/pure_red</item>
     </style>
 
+    <style name="TopDefaultsViewColorPickerPopupAnimation">
+        <item name="android:windowEnterAnimation">@anim/top_defaults_view_color_picker_popup_show</item>
+        <item name="android:windowExitAnimation">@anim/top_defaults_view_color_picker_popup_hide</item>
+    </style>
+
 </resources>
