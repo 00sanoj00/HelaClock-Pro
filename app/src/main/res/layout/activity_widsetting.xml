@@ -1,203 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/layout_oldmain">
+    android:background="@color/black">
 
-    <TextView
+    <ahmadrosid.com.lib.CustomTextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="@string/widhed"
-        android:textColor="@color/black"
-        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_23sdp"
+        android:textStyle="bold"
+        app:fontPath="@string/english_font"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/textcolour"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/ayout_bg"
-        android:text="@string/textcolour"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/backgraund"
-        app:layout_constraintEnd_toStartOf="@+id/backgraund"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/backgraund" />
-
-    <TextView
-        android:id="@+id/codeview"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="89dp"
-        android:text="test"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/textcolour"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        android:layout_marginTop="16dp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:gravity="center"
+
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/textcolour"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/button"
+                android:paddingStart="@dimen/_24sdp"
+                android:paddingEnd="@dimen/_24sdp"
+                android:text="@string/textColour"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/button"
+            android:paddingStart="@dimen/_24sdp"
+            android:paddingEnd="@dimen/_24sdp"
+            android:text="@string/resetstn"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/clnoty"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/button"
+            android:paddingStart="@dimen/_24sdp"
+            android:paddingEnd="@dimen/_24sdp"
+            android:text="Hide notofication"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
+        android:id="@+id/ivClockBG"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_marginTop="27dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="28dp"
         android:background="@drawable/sndbackgrund"
-        app:layout_constraintBottom_toBottomOf="@+id/codeview"
+        android:contentDescription="@string/background_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <ImageView
         android:id="@+id/backcolourimag"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="17dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginBottom="17dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/ivClockBG"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/ivClockBG" />
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="0dp"
+        android:id="@+id/hintImage"
+        android:layout_width="@dimen/_80sdp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/morningimg_view"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/ivClockBG"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/ivClockBG" />
 
     <ahmadrosid.com.lib.CustomTextView
-        android:id="@+id/textView4"
+        android:id="@+id/textAM_PM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="23dp"
-        android:text="වේලාව පෙරවරු"
         android:textColor="@color/white"
         android:textSize="@dimen/_23sdp"
         app:fontPath="@string/sinhala"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="@+id/backcolourimag"
         app:layout_constraintTop_toTopOf="@+id/backcolourimag" />
 
     <ahmadrosid.com.lib.CustomTextView
-        android:id="@+id/textView5"
+        android:id="@+id/textHour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="නවය පසුවී"
         android:textColor="@color/white"
         android:textSize="@dimen/_45sdp"
         app:fontPath="@string/sinhala"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
+        app:layout_constraintStart_toStartOf="@+id/textAM_PM"
+        app:layout_constraintTop_toTopOf="@+id/textAM_PM" />
 
     <ahmadrosid.com.lib.CustomTextView
-        android:id="@+id/textView6"
+        android:id="@+id/textMinutes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
         android:layout_marginTop="253dp"
-        android:text="විනාඩි පනස් නවයයි"
         android:textColor="@color/white"
         android:textSize="@dimen/_29sdp"
         app:fontPath="@string/sinhala"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="72dp"
-        android:text="test2"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/backcolourimag"
-        app:layout_constraintStart_toStartOf="@+id/backgraund"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <Button
-        android:id="@+id/backgraund"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/ayout_bg"
-        android:text="@string/bakcolou"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/clnoty"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textcolour"
-        app:layout_constraintTop_toBottomOf="@+id/back" />
-
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
-        android:text="@string/Hint"
-        android:textColor="@color/black"
-        android:theme="@style/SwitchCompatTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clnoty" />
-
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/ayout_bg"
-        android:text="@string/resetstn"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/clnoty"
-        app:layout_constraintEnd_toStartOf="@+id/clnoty"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/clnoty" />
-
-    <Button
-        android:id="@+id/clnoty"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="67dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/ayout_bg"
-        android:text="Hide notofication"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/reset"
-        app:layout_constraintTop_toBottomOf="@+id/back" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textAM_PM"
         app:layout_constraintTop_toTopOf="parent" />
 
 

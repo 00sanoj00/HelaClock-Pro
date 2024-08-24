@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/_10sdp">
+
+    <!--Main Layout-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/clock_setting_title"
+            android:textStyle="bold" />
+
+        <!--Upper Layout-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/_10sdp">
+
+                <CheckBox
+                    android:id="@+id/checkBoxBlank"
+                    android:onClick="checkBoxBlank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="@string/checkbox_blank"
+                    android:theme="@style/SwitchCompatTheme" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:background="#000000"
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:contentDescription="@string/blank_image" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/_10sdp">
+
+                <CheckBox
+                    android:id="@+id/checkBoxPattern"
+                    android:onClick="checkBoxPattern"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="@string/checkbox_bg1"
+                    android:theme="@style/SwitchCompatTheme" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/sndbackgrund"
+                    android:contentDescription="@string/pattern_image" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--Bottom Layout-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/_10sdp">
+
+                <CheckBox
+                    android:id="@+id/checkBoxGrunge"
+                    android:onClick="checkBoxGrunge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="@string/checkbox_grunge"
+                    android:theme="@style/SwitchCompatTheme" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/sndsback"
+                    android:contentDescription="@string/grunge_image" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/_10sdp">
+
+                <CheckBox
+                    android:id="@+id/checkBoxRock"
+                    android:onClick="checkBoxRock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="@string/checkbox_rock"
+                    android:theme="@style/SwitchCompatTheme"/>
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:background="@drawable/lastbck"
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:contentDescription="@string/rock_image"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_15sdp"
+            android:onClick="onSaveChanges"
+            android:text="@string/save"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

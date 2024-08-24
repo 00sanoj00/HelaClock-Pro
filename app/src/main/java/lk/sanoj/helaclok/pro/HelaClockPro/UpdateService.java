@@ -86,7 +86,7 @@ public class UpdateService extends Service {
 
         try{
 
-            //view.setInt(R.id.back, "setBackgroundColor", android.graphics.Color.BLACK); //(Color.parseColor(cccc));
+            //view.setInt(R.id.back, "setBackgroundColor", android.graphics.Color.BLACK); //(Color.parseColor(clockSettingGrunge));
             view.setInt(R.id.back, "setBackgroundColor", sexy);
         }catch (Exception ty){
 

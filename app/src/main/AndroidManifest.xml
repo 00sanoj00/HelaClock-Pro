@@ -5,7 +5,7 @@
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,22 +14,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/sflash">
-        <activity android:name=".section"></activity>
+        <activity android:name=".section"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".widsetting" />
+        <activity android:name=".CPicker" />
+        <activity android:name=".WidgetSetting" />
         <activity
             android:name=".clock"
             android:theme="@style/sflashs" />
-        <activity android:name=".Welcom">
+        <activity
+            android:name=".Welcom"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <receiver
             android:name=".ClockWidget"
+            android:exported="true"
             android:icon="@drawable/ic_launcher_round"
             android:label="@string/app_name">
             <intent-filter>

@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class clock extends AppCompatActivity {
+    // DeskClock Feature
 
     ConstraintLayout layt;
     TextView hh;
@@ -34,15 +35,15 @@ public class clock extends AppCompatActivity {
 
 
 
-        layt = (ConstraintLayout)findViewById(R.id.mnl);
-        hh = (TextView)findViewById(R.id.HH);
-        mm = (TextView)findViewById(R.id.MM);
-        amp = (TextView)findViewById(R.id.AMP);
+        layt = findViewById(R.id.mnl);
+        hh = findViewById(R.id.HH);
+        mm = findViewById(R.id.MM);
+        amp = findViewById(R.id.AMP);
 
 
-        TextView7 = (TextView)findViewById(R.id.textView7);
-        TextView8 = (TextView)findViewById(R.id.textView8);
-        TextView11 = (TextView)findViewById(R.id.textView11);
+        TextView7 = findViewById(R.id.textView7);
+        TextView8 = findViewById(R.id.textView8);
+        TextView11 = findViewById(R.id.textView11);
 
 
         Typeface fontHindi = Typeface.createFromAsset(getAssets(),
@@ -61,21 +62,24 @@ public class clock extends AppCompatActivity {
             SharedPreferences prefs = this.getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
             String themes = prefs.getString("ThemeName", null);
 
+            if (themes != null) {
+                switch (themes) {
+                    case "AssXSDrrfgssdbh":
+                        layt.setBackgroundColor(Color.BLACK);
+                        break;
+                    case "WdhbgfhghhdwaSSDfgdfg":
+                        layt.setBackgroundResource(R.drawable.sndbackgrund);
+                        break;
+                    case "HlknsdakjKJHfdskljhs":
+                        layt.setBackgroundResource(R.drawable.sndsback);
+                        break;
+                    case "dAsdsQWdsfdSDfdsfS":
+                        layt.setBackgroundResource(R.drawable.lastbck);
+                        break;
+                }
+            }
 
-            if (themes.equals("AssXSDrrfgssdbh")){
-                layt.setBackgroundColor(Color.BLACK);
-            }
-            else if (themes.equals("WdhbgfhghhdwaSSDfgdfg")){
-                layt.setBackgroundResource(R.drawable.sndbackgrund);
-            }
-            else if (themes.equals("HlknsdakjKJHfdskljhs")){
-                layt.setBackgroundResource(R.drawable.sndsback);
-            }
-            else if (themes.equals("dAsdsQWdsfdSDfdsfS")){
-                layt.setBackgroundResource(R.drawable.lastbck);
-            }
-
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
 
         }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hint_image">Hint Image</string>
+    <string name="test">test</string>
+    <string name="desk_clock_btn">Desk Clock</string>
+    <string name="checkbox_blank">Blank</string>
+    <string name="checkbox_bg1">Pattern</string>
+    <string name="checkbox_grunge">Grunge</string>
+    <string name="checkbox_rock">Rock Wall</string>
+    <string name="blank_image">Blank Image</string>
+    <string name="pattern_image">Pattern Image</string>
+    <string name="rock_image">Rock Image</string>
+    <string name="grunge_image">Grunge Image</string>
+    <string name="clock_setting_title">CLOCK BACKGROUND</string>
+    <string name="save">Save</string>
+    <string name="english_font_med">fonts/OpenSans-Medium.ttf</string>
+    <string name="english_font_sb">fonts/OpenSans-SemiBold.ttf</string>
+</resources>

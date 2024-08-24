@@ -12,6 +12,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+/*
+* Not Using this class now
+* Modified by: bhashanaliyanage@gmail.com
+* */
+
 public class MainActivity extends AppCompatActivity {
 
     CheckBox ch1;
@@ -20,22 +25,20 @@ public class MainActivity extends AppCompatActivity {
     CheckBox ch4;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
         setContentView(R.layout.activity_main);
 
 
-        ch1 = (CheckBox) findViewById(R.id.checkBox);
-        ch2 = (CheckBox) findViewById(R.id.checkBox2);
-        ch3 = (CheckBox) findViewById(R.id.checkBox3);
-        ch4 = (CheckBox) findViewById(R.id.checkBox4);
-        final Button stat = (Button) findViewById(R.id.button2);
-        TextView tx1 = (TextView) findViewById(R.id.textView);
-        TextView tx2 = (TextView) findViewById(R.id.textView2);
+        ch1 = findViewById(R.id.checkBox);
+        ch2 = findViewById(R.id.checkBox2);
+        ch3 = findViewById(R.id.checkBox3);
+        ch4 = findViewById(R.id.checkBox4);
+        final Button stat = findViewById(R.id.button2);
+        TextView tx1 = findViewById(R.id.textView);
+        TextView tx2 = findViewById(R.id.textView2);
 
         Typeface fontHindi = Typeface.createFromAsset(getAssets(),
                 "fonts/emanee.ttf");
@@ -44,27 +47,26 @@ public class MainActivity extends AppCompatActivity {
         tx2.setTypeface(fontHindi);
 
 
-
-
-
-
         try {
 
             SharedPreferences prefs = this.getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
             String themes = prefs.getString("ThemeName", null);
 
 
-            if (themes.equals("AssXSDrrfgssdbh")){
-                ch1.setChecked(true);
-            }
-            else if (themes.equals("WdhbgfhghhdwaSSDfgdfg")){
-                ch2.setChecked(true);
-            }
-            else if (themes.equals("HlknsdakjKJHfdskljhs")){
-                ch3.setChecked(true);
-            }
-            else if (themes.equals("dAsdsQWdsfdSDfdsfS")){
-                ch4.setChecked(true);
+            assert themes != null;
+            switch (themes) {
+                case "AssXSDrrfgssdbh":
+                    ch1.setChecked(true);
+                    break;
+                case "WdhbgfhghhdwaSSDfgdfg":
+                    ch2.setChecked(true);
+                    break;
+                case "HlknsdakjKJHfdskljhs":
+                    ch3.setChecked(true);
+                    break;
+                case "dAsdsQWdsfdSDfdsfS":
+                    ch4.setChecked(true);
+                    break;
             }
 
         } catch (Exception e) {
@@ -76,30 +78,27 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-       // btn.setOnClickListener(new View.OnClickListener() {
+        // btn.setOnClickListener(new View.OnClickListener() {
         //    @Override
         //    public void onClick(View view) {
         //        Intent open = new Intent(MainActivity.this, widsetting.class);
         ///        startActivity(open);
-         //   }
-       // });
-
+        //   }
+        // });
 
 
     }
 
-    public void aaaa (View v){
+    public void clockSettingBlank(View v) {
         SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
         editor.putString("ThemeName", "AssXSDrrfgssdbh");
         editor.apply();
         ch2.setChecked(false);
         ch3.setChecked(false);
         ch4.setChecked(false);
-
-
     }
 
-    public void bbbb (View v){
+    public void clockSettingPattern(View v) {
         SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
         editor.putString("ThemeName", "WdhbgfhghhdwaSSDfgdfg");
         editor.apply();
@@ -109,7 +108,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void cccc (View v){
+
+    public void clockSettingGrunge(View v) {
         SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
         editor.putString("ThemeName", "HlknsdakjKJHfdskljhs");
         editor.apply();
@@ -119,7 +119,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void dddd (View v){
+
+    public void clockSettingRock(View v) {
         SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
         editor.putString("ThemeName", "dAsdsQWdsfdSDfdsfS");
         editor.apply();
@@ -129,12 +130,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void bbb (View v){
-
+    public void bbb(View v) {
         startActivity(new Intent(MainActivity.this, clock.class));
     }
-    public void getfont(){
-        Typeface fontHindi = Typeface.createFromAsset(getAssets(),
-                "fonts/emanee.ttf");
-    }
+
 }

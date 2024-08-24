@@ -12,9 +12,9 @@
 
     <ImageView
         android:id="@+id/status"
-        android:layout_marginLeft="282dp"
+        android:layout_marginStart="282dp"
         android:layout_width="129dp"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
     <ImageView
         android:id="@+id/AMPM"
