@@ -1,0 +1,17 @@
+HelaClock-Pro
+
+This product includes software developed by the original author SaNoJ (@00sanoj00) under the Apache License 2.0.
+
+Modifications and enhancements were made by Bhashana (@bhashanaliyanage) as of August 2024, including:
+- Home Screen Clock Now Shows Correct Time
+- Dynamic Image View changes for Home Screen
+- UX/UI Revamp for Desk Clock
+- Upgraded Gradle version
+- Functionality to change hint image colors
+- Optimization for ClockWidget class
+- Version Number update to v3.1.2
+- Added Widget onClick method
+- Fixed minor Color Picker issues
+- Various performance optimizations
+
+For more details, see the LICENSE file in the repository.

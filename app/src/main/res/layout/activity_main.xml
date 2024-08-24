@@ -17,7 +17,7 @@
         android:background="@drawable/ayout_bg"
         android:text="@string/btntext"
         android:textColor="@color/black"
-        android:textSize="34dp"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -43,7 +43,7 @@
 
         <CheckBox
             android:id="@+id/checkBox"
-            android:onClick="aaaa"
+            android:onClick="clockSettingBlank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="7dp"
@@ -51,7 +51,7 @@
             android:layout_marginEnd="94dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="15dp"
-            android:text="CheckBox"
+            android:text="@string/checkbox_blank"
             android:theme="@style/SwitchCompatTheme"
             app:layout_constraintBottom_toTopOf="@+id/imageView2"
             app:layout_constraintEnd_toStartOf="@+id/checkBox2"
@@ -61,14 +61,14 @@
 
         <CheckBox
             android:id="@+id/checkBox2"
-            android:onClick="bbbb"
+            android:onClick="clockSettingPattern"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="7dp"
             android:textColor="@color/black"
             android:layout_marginEnd="36dp"
             android:layout_marginTop="15dp"
-            android:text="CheckBox"
+            android:text="@string/checkbox_bg1"
             android:theme="@style/SwitchCompatTheme"
             app:layout_constraintBottom_toTopOf="@+id/imageView3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -76,14 +76,14 @@
 
         <CheckBox
             android:id="@+id/checkBox3"
-            android:onClick="cccc"
+            android:onClick="clockSettingGrunge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="7dp"
             android:layout_marginEnd="94dp"
             android:textColor="@color/black"
             android:layout_marginStart="30dp"
-            android:text="CheckBox"
+            android:text="@string/checkbox_grunge"
             android:theme="@style/SwitchCompatTheme"
             app:layout_constraintBottom_toTopOf="@+id/imageView6"
             app:layout_constraintEnd_toStartOf="@+id/checkBox4"
@@ -91,13 +91,13 @@
 
         <CheckBox
             android:id="@+id/checkBox4"
-            android:onClick="dddd"
+            android:onClick="clockSettingRock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="7dp"
             android:textColor="@color/black"
             android:layout_marginEnd="36dp"
-            android:text="CheckBox"
+            android:text="@string/checkbox_rock"
             android:theme="@style/SwitchCompatTheme"
             app:layout_constraintBottom_toTopOf="@+id/imageView7"
             app:layout_constraintEnd_toEndOf="parent" />

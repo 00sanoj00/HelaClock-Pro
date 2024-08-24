@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/colorPickerDialog"
+    app:cardCornerRadius="@dimen/_10sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <top.defaults.colorpicker.ColorPickerView
+            android:id="@+id/colorPicker"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="32dp"
+            app:enableAlpha="true"
+            app:enableBrightness="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnPick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/pick"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/colorHex"
+            app:layout_constraintStart_toStartOf="@+id/colorHex"
+            app:layout_constraintTop_toBottomOf="@+id/colorHex" />
+
+        <EditText
+            android:id="@+id/colorHex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/hint"
+            app:layout_constraintEnd_toEndOf="@+id/colorPicker"
+            app:layout_constraintStart_toStartOf="@+id/colorPicker"
+            app:layout_constraintTop_toBottomOf="@+id/colorPicker" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

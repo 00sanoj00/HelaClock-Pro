@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".section"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/hintImage"
+            android:layout_width="100dp"
+            android:layout_height="230dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="182dp"
+            android:contentDescription="@string/hint_image"
+            app:layout_constraintBottom_toTopOf="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ahmadrosid.com.lib.CustomTextView
+            android:id="@+id/textAM_PM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:text="වේලාව පෙරවරු"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_23sdp"
+            app:fontPath="@string/sinhala"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/hintImage" />
+
+        <ahmadrosid.com.lib.CustomTextView
+            android:id="@+id/textHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="නවය පසුවී"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_45sdp"
+            app:fontPath="@string/sinhala"
+            app:layout_constraintStart_toStartOf="@+id/textAM_PM"
+            app:layout_constraintTop_toTopOf="@+id/textAM_PM" />
+
+        <ahmadrosid.com.lib.CustomTextView
+            android:id="@+id/textMinutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="විනාඩි පනස් නවයයි"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_29sdp"
+            app:fontPath="@string/sinhala"
+            app:layout_constraintStart_toStartOf="@+id/textHour"
+            app:layout_constraintTop_toBottomOf="@+id/textHour" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="#0F0F0F"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                style="?android:attr/buttonBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+                <Button
+                    android:id="@+id/button"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:onClick="startClock"
+                    android:layout_width="@dimen/_190sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:background="@drawable/button"
+                    android:text="@string/desk_clock_btn"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/white"
+                    android:paddingStart="@dimen/_24sdp"
+                    android:paddingEnd="@dimen/_24sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/buttonSettings"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:paddingStart="@dimen/_16sdp"
+                    android:paddingEnd="@dimen/_16sdp"
+                    android:background="@drawable/button"
+                    android:drawableStart="@drawable/baseline_settings_24"
+                    android:drawableTint="@color/white"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/white"
+                    android:onClick="clockSettings"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/button"
+                android:text="@string/widget_setting_btn"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                android:paddingStart="@dimen/_24sdp"
+                android:paddingEnd="@dimen/_24sdp"
+                app:layout_constraintBottom_toTopOf="@+id/button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/home_sub" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/version"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="@+id/imageView4"
+            app:layout_constraintStart_toStartOf="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".section">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/morningimg_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ahmadrosid.com.lib.CustomTextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="වේලාව පෙරවරු"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_23sdp"
+        app:fontPath="@string/sinhala"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+    <ahmadrosid.com.lib.CustomTextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="නවය පසුවී"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_45sdp"
+        app:fontPath="@string/sinhala"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+    <ahmadrosid.com.lib.CustomTextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="විනාඩි පනස් නවයයි"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_29sdp"
+        app:fontPath="@string/sinhala"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginBottom="64dp"
+        android:text="Desk Clock"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginBottom="24dp"
+        android:text="Widget Setting"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/home_sub" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HELACLOCK PRO v3.1.1 [FORK]"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="22dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>-->

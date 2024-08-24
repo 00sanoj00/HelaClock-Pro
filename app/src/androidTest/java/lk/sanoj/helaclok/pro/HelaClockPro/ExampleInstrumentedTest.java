@@ -1,9 +1,17 @@
 package lk.sanoj.helaclok.pro.HelaClockPro;
 
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.RootMatchers.isDialog;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+
 import android.content.Context;
 
 import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
+import androidx.test.core.app.ActivityScenario;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,4 +32,17 @@ public class ExampleInstrumentedTest {
 
         assertEquals("lk.sanoj.helaclok.pro.HelaClockPro", appContext.getPackageName());
     }
+
+@Test
+public void changeTextColorDialog() {
+    try (ActivityScenario<WidgetSetting> ignored = ActivityScenario.launch(WidgetSetting.class)) {
+        // Click the button
+        onView(withId(R.id.textcolour)).perform(click());
+
+        // Check if the dialog is displayed
+        onView(withId(R.id.colorPickerDialog))
+                .inRoot(isDialog())
+                .check(matches(isDisplayed()));
+    }
+}
 }
